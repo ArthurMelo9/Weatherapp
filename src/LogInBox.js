@@ -14,6 +14,8 @@ function LogInBox() {
                 <input type="password" />
 
             </form>
+
+            <button>Login</button>
         </div>
     )
 }
