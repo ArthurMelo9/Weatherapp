@@ -65,21 +65,23 @@ main {
   color: #fff;
   font-size: 32px;
   font-weight: 500;
-  text-align: center;
+  text-align: left;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  margin-left: 20px;
 }
 
 .location-box .date {
   color: #fff;
   font-size: 20px;
   font-weight: 300;
-  text-align: center;
+  text-align: left;
   font-style: italic;
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+  margin-left: 20px;
 }
 
 .weather-box {
-  text-align: center;
+  text-align: left;
 }
 
 .weather-box .temperature {
@@ -91,6 +93,7 @@ main {
   border-radius: 16px;
 
   padding: 15px 25px;
+  margin-left: 20px;
 
   color: #fff;
   font-size: 100px;
@@ -98,7 +101,7 @@ main {
 
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
 
-  text-align: center;
+  text-align: left;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -107,4 +110,26 @@ main {
   font-size: 48px;
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  margin-left: 20px;
+}
+
+.loginbox {
+  /*position: relative;
+  display: inline-block;*/
+  /*margin: 30px;*/
+  width: 100%;
+
+  background-color: rgba(29, 28, 28, 0.2);
+  border-radius: 16px;
+
+  padding: 15px 25px;
+
+  color: #fff;
+  font-size: 20px;
+  font-weight: 100;
+
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+
+  text-align: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
