@@ -17,6 +17,7 @@ function LogInBox() {
         <div className='loginbox'>
             {userLoggedIn === true && <p>Welcome User!</p>}
             {userLoggedIn === false && <p><i>Please sign up for an account</i></p>}
+            <br />
             <form>
                 <label>Email</label>
                 <input type="text" />
@@ -30,7 +31,9 @@ function LogInBox() {
             </form>
 
             <button onClick={login}>Login</button>
-            <button onClick={logout}>logout</button>
+            <br />
+            <br />
+            <button onClick={logout}>Logout</button>
         </div>
     )
 }
