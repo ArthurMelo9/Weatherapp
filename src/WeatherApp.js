@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import Home from './Home';
+import LogInBox from './LogInBox';
 
 
 
@@ -11,6 +12,9 @@ const api = {
 function WeatherApp() {
     const [query, setQuery] = useState('');
     const [weather, setWeather] = useState({});
+
+    const [userLoggedIn, setUserLoggedIn] = useState(true);
+
 
     const search = evt => {
         if (evt.key === 'Enter') {
@@ -71,20 +75,29 @@ function WeatherApp() {
                         onKeyPress={search}
                     ></input>
                 </div>
-                {(typeof weather.main != "undefined") ? (
-                    <div>
-                        <div className="location-box">
-                            <div className="location">{weather.name},{weather.sys.country}</div>
-                            <div className="date">{dateBuilder(new Date())}</div>
-                        </div>
-                        <div className="weather-box">
-                            <div className="temperature">{Math.round(weather.main.temp)}°C </div>
-                            <div className="weather">{weather.weather[0].main}</div>
-                        </div>
-                    </div>
 
-                ) : ('')}
+                <div>
+                    {(typeof weather.main != "undefined") ? (
+                        <div style={{ float: "right" }}>
+                            <div className="location-box">
+                                <div className="location">{weather.name},{weather.sys.country}</div>
+                                <div className="date">{dateBuilder(new Date())}</div>
+                            </div>
+                            <div className="weather-box">
+                                <div className="temperature">{Math.round(weather.main.temp)}°C </div>
+                                <div className="weather">{weather.weather[0].main}</div>
+                            </div>
+                        </div>
+
+                    ) : ('')}
+
+                    {/* {!userLoggedIn && <LogInBox setUserLoggedIn={setUserLoggedIn} />} */}
+                    <div style={{ float: "left" }}>
+                        {userLoggedIn && <Home setUserLoggedIn={setUserLoggedIn} />}</div>
+                </div>
+
             </main>
+
 
         </div>
     )

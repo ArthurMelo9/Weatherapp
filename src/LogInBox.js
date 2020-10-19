@@ -3,16 +3,38 @@ import React, { useState } from "react"
 
 
 function LogInBox() {
-    const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [userLoggedIn, setUserLoggedIn] = useState();
 
-    function logout() {
-        setUserLoggedIn(false);
 
+
+
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleEmailInput(event) {
+        setEmail(event.target.value)
+    }
+
+    function handlePasswordInput(event) {
+        setPassword(event.target.value)
+    }
+
+
+
+    function handleLogin(event) {
+        event.preventDefault();
+        if (
+            email === 'arthurneuro7@gmail.com' && password === '123456'
+        ) {
+            setUserLoggedIn(true);
+            window.location.assign('welcomePage');
+        }
 
     }
-    function login() {
-        setUserLoggedIn(true);
-    }
+
+    /*setUserLoggedIn(true);*/
+
     return (
         <div className='loginbox'>
             {userLoggedIn === true && <p>Welcome User!</p>}
@@ -20,20 +42,21 @@ function LogInBox() {
             <br />
             <form>
                 <label>Email</label>
-                <input type="text" />
+                <input type="text" value={email} onChange={handleEmailInput} />
 
             </form>
 
             <form>
                 <label>Password</label>
-                <input type="password" />
+                <input type="password" value={password} onChange={handlePasswordInput}
+                />
 
             </form>
 
-            <button onClick={login}>Login</button>
+            <button onClick={handleLogin}>Login</button>
             <br />
             <br />
-            <button onClick={logout}>Logout</button>
+
         </div>
     )
 }
