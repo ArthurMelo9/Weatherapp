@@ -1,64 +1,63 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 
 
+/**
+* @author
+* @function LoginBox
+**/
 
-function LogInBox() {
-    const [userLoggedIn, setUserLoggedIn] = useState();
+const LoginBox = (props) => {
 
-
-
-
-
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('Arthur');
     const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
 
-    function handleEmailInput(event) {
-        setEmail(event.target.value)
-    }
+    const handleUsernameInput = (event) => {
+        setUsername(event.target.value)
+    };
 
-    function handlePasswordInput(event) {
+    const handlePasswordInput = (event) => {
         setPassword(event.target.value)
-    }
-
-
+    };
 
     function handleLogin(event) {
         event.preventDefault();
-        if (
-            email === 'arthurneuro7@gmail.com' && password === '123456'
-        ) {
-            setUserLoggedIn(true);
-            window.location.assign('welcomePage');
-        }
-
+        if (username === 'Arthur' && password === '123456')
+            setLoggedIn(true)
+        window.location = "welcomePage";
     }
-
-    /*setUserLoggedIn(true);*/
-
     return (
-        <div className='loginbox'>
-            {userLoggedIn === true && <p>Welcome User!</p>}
-            {userLoggedIn === false && <p><i>Please sign up for an account</i></p>}
-            <br />
-            <form>
-                <label>Email</label>
-                <input type="text" value={email} onChange={handleEmailInput} />
+        <div className="loginbox">
 
+            {
+                loggedIn === true ?
+                    <p>Welcome Arthur! What do you have for us today? Add a new post...</p> : null
+            }
+
+
+
+            <form>
+                <span>Login</span>
+                <br />
+                <br />
+                <label>
+                    <input type="text" value={username} placeholder="Username" onChange={handleUsernameInput} />
+                    Username</label>
+                <br />
+                <br />
+                <label><input type="password" value={password} placeholder="Password" onChange={handlePasswordInput} /> Password</label>
+                <br /> <br />
+                <button onClick={handleLogin}>Login</button>
+                <br /> <br />
+                <span><a href="#">Forgot password?</a>
+                    <br />
+                    <a href="#">Sign up</a></span>
             </form>
 
-            <form>
-                <label>Password</label>
-                <input type="password" value={password} onChange={handlePasswordInput}
-                />
-
-            </form>
-
-            <button onClick={handleLogin}>Login</button>
-            <br />
-            <br />
 
         </div>
-    )
+    );
+
 }
 
-export default LogInBox;
+export default LoginBox;

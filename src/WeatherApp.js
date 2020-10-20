@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Home from './Home';
+/*import Home from './Home';*/
+/*import LoginBox from './LogInBox';*/
 import LogInBox from './LogInBox';
 
 
@@ -13,7 +14,8 @@ function WeatherApp() {
     const [query, setQuery] = useState('');
     const [weather, setWeather] = useState({});
 
-    const [userLoggedIn, setUserLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
+
 
 
     const search = evt => {
@@ -90,10 +92,15 @@ function WeatherApp() {
                         </div>
 
                     ) : ('')}
-
+                    {
+                        loggedIn === true ?
+                            <p>Welcome Arthur! What do you have for us today? Add a new post...</p> : null
+                    }
                     {/* {!userLoggedIn && <LogInBox setUserLoggedIn={setUserLoggedIn} />} */}
                     <div style={{ float: "left" }}>
-                        {userLoggedIn && <Home setUserLoggedIn={setUserLoggedIn} />}</div>
+                        <LogInBox />
+                    </div>
+
                 </div>
 
             </main>
