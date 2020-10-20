@@ -47,7 +47,7 @@ const LoginBox = (props) => {
                 <br />
                 <label><input type="password" value={password} placeholder="Password" onChange={handlePasswordInput} /> Password</label>
                 <br /> <br />
-                <button onClick={handleLogin}>Login</button>
+                <button onClick={handleLogin}> Login</button>
                 <br /> <br />
                 <span><a href="#">Forgot password?</a>
                     <br />
